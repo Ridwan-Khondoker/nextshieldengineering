@@ -638,6 +638,10 @@ footer a:hover{text-decoration:underline}
   // Product data. Category structure and models follow the GCTL reference catalogue.
   // Descriptions are original. To add a photo, set img to a data: URI or a file path on your own host.
   // [name, brand, category, glyph, description, inStock, img]
+  // Safehouse items were originally fictional "Next Shield" branded SKUs with no real image;
+  // swapped for genuine Chubbsafes/Gunnebo products with matching specs (fire rating etc.) so
+  // there's a real manufacturer photo for every row. Swap for Next Shield's own installed work
+  // (photos, brand names) once available.
   // Image sourcing notes (review before launch):
   // - Files prefixed "gctl-fallback-" were pulled from gctlsecurity.com because no matching
   //   product/SKU could be confirmed on the actual manufacturer's own site (either the model
@@ -698,12 +702,12 @@ footer a:hover{text-decoration:underline}
     ["ABC dry powder fire extinguisher","NSE supply","fire","ext","Multi-purpose extinguisher for solids, liquids and electrical fires.",1],
     ["Dry powder fire extinguisher, 3 kg","NSE supply","fire","ext","Compact extinguisher for vehicles, kitchens and small offices.",1],
     ["Modular automatic extinguisher, 6 kg","NSE supply","fire","ext","Ceiling-mounted unit that discharges on its own when heat rises.",0],
-    // Safehouse (Next Shield speciality)
-    ["Strong room door SR-120","Next Shield","safehouse","vault","Multi-bolt vault door with frame and time lock for strong rooms.",0],
-    ["Fireproof document safe FS-60","Next Shield","safehouse","safe","Fire-resistant safe for deeds, cash and backup drives.",1],
-    ["Cash deposit safe DS-30","Next Shield","safehouse","safe","Drop-slot safe for tills and after-hours deposits.",0],
-    ["Safe room panel kit SRK-35","Next Shield","safehouse","room","Bolted steel panels that turn an existing room into a safe room.",0],
-    ["Fire resistance door","Next Shield","safehouse","room","Rated door that holds back fire and smoke along escape routes.",0]
+    // Safehouse (real vault/safe manufacturer products, supplied and installed by Next Shield)
+    ["Centurion DD vault door","Gunnebo","safehouse","vault","High-security vault door for bank strong rooms, rated to 120 minutes fire resistance.",0,"images/products/gunnebo-centurion-dd.webp"],
+    ["Executive fireproof safe","Chubbsafes","safehouse","safe","Certified 60-minute fire safe for paper documents, valuables and data media.",1,"images/products/chubbsafes-executive.png"],
+    ["Omega deposit safe","Chubbsafes","safehouse","safe","Drop-slot deposit safe with anti-fishing device for tills and after-hours deposits.",0,"images/products/chubbsafes-omega-deposit.webp"],
+    ["ModulGuard SR T2 strong room panels","Gunnebo","safehouse","room","Modular bolted steel panels that turn an existing room into a certified strong room.",0,"images/products/gunnebo-modulguard-srt2.webp"],
+    ["DPC document protection cabinet","Chubbsafes","safehouse","safe","120-minute fire-rated cabinet for high-volume records storage in banks and offices.",0,"images/products/chubbsafes-dpc.png"]
   ];
   const CATNAME = {access:"Access control",cctv:"CCTV camera",entrance:"Entrance security",vehicle:"Vehicle control",fire:"Fire alarm",safehouse:"Safehouse"};
   const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
