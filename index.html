@@ -638,50 +638,62 @@ footer a:hover{text-decoration:underline}
   // Product data. Category structure and models follow the GCTL reference catalogue.
   // Descriptions are original. To add a photo, set img to a data: URI or a file path on your own host.
   // [name, brand, category, glyph, description, inStock, img]
+  // Image sourcing notes (review before launch):
+  // - Files prefixed "gctl-fallback-" were pulled from gctlsecurity.com because no matching
+  //   product/SKU could be confirmed on the actual manufacturer's own site (either the model
+  //   code doesn't exist there, or the manufacturer has discontinued/delisted it). Replace with
+  //   licensed/manufacturer-confirmed photos before launch, or if flagged for copyright.
+  // - VF-30 (Anviz): manufacturer only lists a "VF30 Pro" successor now; photo is of that.
+  // - T60 (Anviz): photo is a lifestyle/install shot from the official T60 Pro flyer, not a studio cutout.
+  // - DS-2CE16D0T-IR (Hikvision): manufacturer site now only lists the "-IR(C)" variant; used that photo.
+  // - Addressable 4-loop fire alarm panel (Bosch): FPA-5000 is modular (no single boxed "4-loop" SKU);
+  //   photo is of the MPC-1300-C panel controller module, the main visible unit of that panel family.
+  // - UB700 (UNIQSCAN): our spec says "24-zone" but the manufacturer's current page describes this
+  //   model as 33-zone — verify the correct zone count before publishing.
   const P = [
     // Access control & time attendance
-    ["uFace800 facial access terminal","ZKTeco","access","face","Face, fingerprint and card entry with built-in attendance logging.",1],
-    ["uFace302 biometric attendance terminal","ZKTeco","access","face","Multi-biometric terminal for staff attendance and single-door control.",1],
-    ["AC-2200 fingerprint access terminal","Virdi","access","finger","Fingerprint and card reader for offices that need access and attendance together.",1],
-    ["SR-100FP fingerprint slave reader","Virdi","access","reader","Secondary reader that adds fingerprint checks on the exit side of a door.",0],
-    ["FR1200 fingerprint and RFID reader","Granding","access","reader","Weatherproof slave reader for outdoor gates and anti-passback setups.",1],
-    ["VF-30 fingerprint and RFID terminal","Anviz","access","finger","Compact fingerprint and card terminal for small offices and shops.",1],
-    ["T60 fingerprint and RFID controller","Anviz","access","finger","Slim, door-frame-mounted reader for glass and narrow doors.",0],
-    ["eNBioAccess-T3 attendance terminal","Nitgen","access","finger","Fingerprint attendance terminal with network reporting.",0],
-    ["BioMini USB fingerprint scanner","Suprema","access","usb","Desktop scanner for enrolling staff fingerprints at a PC.",1],
-    ["KR100E RFID external reader","ZKTeco","access","reader","Card reader for adding card entry to an existing controller.",1],
+    ["uFace800 facial access terminal","ZKTeco","access","face","Face, fingerprint and card entry with built-in attendance logging.",1,"images/products/zkteco-uface800.jpg"],
+    ["uFace302 biometric attendance terminal","ZKTeco","access","face","Multi-biometric terminal for staff attendance and single-door control.",1,"images/products/zkteco-uface302.jpg"],
+    ["AC-2200 fingerprint access terminal","Virdi","access","finger","Fingerprint and card reader for offices that need access and attendance together.",1,"images/products/virdi-ac2200.jpg"],
+    ["SR-100FP fingerprint slave reader","Virdi","access","reader","Secondary reader that adds fingerprint checks on the exit side of a door.",0,"images/products/virdi-sr100fp.png"],
+    ["FR1200 fingerprint and RFID reader","Granding","access","reader","Weatherproof slave reader for outdoor gates and anti-passback setups.",1,"images/products/gctl-fallback-granding-fr1200.jpg"],
+    ["VF-30 fingerprint and RFID terminal","Anviz","access","finger","Compact fingerprint and card terminal for small offices and shops.",1,"images/products/anviz-vf30.png"],
+    ["T60 fingerprint and RFID controller","Anviz","access","finger","Slim, door-frame-mounted reader for glass and narrow doors.",0,"images/products/anviz-t60.jpg"],
+    ["eNBioAccess-T3 attendance terminal","Nitgen","access","finger","Fingerprint attendance terminal with network reporting.",0,"images/products/gctl-fallback-nitgen-enbioaccess-t3.jpg"],
+    ["BioMini USB fingerprint scanner","Suprema","access","usb","Desktop scanner for enrolling staff fingerprints at a PC.",1,"images/products/gctl-fallback-suprema-biomini.jpg"],
+    ["KR100E RFID external reader","ZKTeco","access","reader","Card reader for adding card entry to an existing controller.",1,"images/products/zkteco-kr100e.png"],
     // CCTV
-    ["AVZ592 2MP 20× PTZ camera","AVTECH","cctv","ptz","Pan, tilt and 20× zoom camera for car parks, yards and large lobbies.",0],
-    ["AVH308EA 8-channel HD recorder","AVTECH","cctv","nvr","Records and plays back up to eight HD cameras from one unit.",1],
-    ["DS-2CE16D0T-IR 2MP bullet camera","Hikvision","cctv","bullet","Day-night 1080p bullet camera with infrared for dark areas.",1],
-    ["DS-2CE16D5T-IT5 2MP IR bullet camera","Hikvision","cctv","bullet","Long-range infrared bullet camera for perimeters and boundary walls.",1],
-    ["DS-2CE16D5T-AVFIT3 varifocal bullet camera","Hikvision","cctv","bullet","Adjustable zoom lens so one camera can cover a wide or narrow field.",0],
-    ["DS-2AE4123TI-D IR PTZ dome","Hikvision","cctv","ptz","Compact PTZ dome with infrared for indoor and covered outdoor areas.",0],
-    ["Home and shop CCTV kit","Varito","cctv","bullet","Ready-to-install camera set for homes and small retail shops.",1],
+    ["AVZ592 2MP 20× PTZ camera","AVTECH","cctv","ptz","Pan, tilt and 20× zoom camera for car parks, yards and large lobbies.",0,"images/products/avtech-avz592.jpg"],
+    ["AVH308EA 8-channel HD recorder","AVTECH","cctv","nvr","Records and plays back up to eight HD cameras from one unit.",1,"images/products/avtech-avh308ea.jpg"],
+    ["DS-2CE16D0T-IR 2MP bullet camera","Hikvision","cctv","bullet","Day-night 1080p bullet camera with infrared for dark areas.",1,"images/products/hikvision-ds2ce16d0tir.jpg"],
+    ["DS-2CE16D5T-IT5 2MP IR bullet camera","Hikvision","cctv","bullet","Long-range infrared bullet camera for perimeters and boundary walls.",1,"images/products/gctl-fallback-hikvision-ds2ce16d5t-it5.jpg"],
+    ["DS-2CE16D5T-AVFIT3 varifocal bullet camera","Hikvision","cctv","bullet","Adjustable zoom lens so one camera can cover a wide or narrow field.",0,"images/products/gctl-fallback-hikvision-ds2ce16d5t-avfit3.jpg"],
+    ["DS-2AE4123TI-D IR PTZ dome","Hikvision","cctv","ptz","Compact PTZ dome with infrared for indoor and covered outdoor areas.",0,"images/products/gctl-fallback-hikvision-ds2ae4123ti-d.jpg"],
+    ["Home and shop CCTV kit","Varito","cctv","bullet","Ready-to-install camera set for homes and small retail shops.",1,"images/products/gctl-fallback-varito-cctv-home-shop-kit.jpg"],
     // Entrance security
-    ["PD 6500i 33-zone walk-through detector","Garrett","entrance","arch","Walk-through detector that shows exactly which zone detected metal.",1],
-    ["UB800 33-zone walk-through detector","UNIQSCAN","entrance","arch","High-zone archway detector for airports, courts and embassies.",0],
-    ["UB700 24-zone walk-through detector","UNIQSCAN","entrance","arch","24-zone archway for corporate lobbies and event entrances.",1],
-    ["UB600 18-zone walk-through detector","UNIQSCAN","entrance","arch","18-zone archway for factories, schools and hotels.",1],
-    ["UM500 rainproof walk-through detector","UNIQSCAN","entrance","arch","Weather-resistant archway for uncovered gates and outdoor events.",0],
-    ["VMD-3000 18-zone archway detector","Varito","entrance","arch","18-zone archway detector for everyday entrance screening.",1],
-    ["Guide hand-held metal detector","Garrett","entrance","wand","Hand-held wand for secondary checks after an archway alarm.",1],
-    ["SF5030C X-ray baggage scanner","Varito","entrance","xray","Screens bags and parcels at reception desks and mailrooms.",0],
-    ["X-ray baggage scanner","Varito","entrance","xray","Conveyor X-ray scanner for high-volume baggage screening.",0],
+    ["PD 6500i 33-zone walk-through detector","Garrett","entrance","arch","Walk-through detector that shows exactly which zone detected metal.",1,"images/products/garrett-pd6500i.png"],
+    ["UB800 33-zone walk-through detector","UNIQSCAN","entrance","arch","High-zone archway detector for airports, courts and embassies.",0,"images/products/gctl-fallback-uniqscan-ub800.jpg"],
+    ["UB700 24-zone walk-through detector","UNIQSCAN","entrance","arch","24-zone archway for corporate lobbies and event entrances.",1,"images/products/uniqscan-ub700.jpg"],
+    ["UB600 18-zone walk-through detector","UNIQSCAN","entrance","arch","18-zone archway for factories, schools and hotels.",1,"images/products/uniqscan-ub600.jpg"],
+    ["UM500 rainproof walk-through detector","UNIQSCAN","entrance","arch","Weather-resistant archway for uncovered gates and outdoor events.",0,"images/products/uniqscan-um500.jpg"],
+    ["VMD-3000 18-zone archway detector","Varito","entrance","arch","18-zone archway detector for everyday entrance screening.",1,"images/products/gctl-fallback-varito-vmd-3000.jpg"],
+    ["Guide hand-held metal detector","Garrett","entrance","wand","Hand-held wand for secondary checks after an archway alarm.",1,"images/products/garrett-guide.png"],
+    ["SF5030C X-ray baggage scanner","Varito","entrance","xray","Screens bags and parcels at reception desks and mailrooms.",0,"images/products/gctl-fallback-varito-sf5030c.jpg"],
+    ["X-ray baggage scanner","Varito","entrance","xray","Conveyor X-ray scanner for high-volume baggage screening.",0,"images/products/gctl-fallback-varito-xray-generic.jpg"],
     // Vehicle control
-    ["VCB-DC4F folding-arm barrier","Varito","vehicle","barrier","Folding boom for car parks with low ceilings.",1],
-    ["VW-DC503 car park barrier gate","Varito","vehicle","barrier","Straight-arm boom barrier for residential and office car parks.",1],
-    ["VW-DCV6 two-way boom barrier","Varito","vehicle","barrier","Dual-arm barrier that controls entry and exit lanes together.",0],
-    ["VW-FA658 fence-arm barrier","Varito","vehicle","barrier","Barrier with a hanging fence skirt that stops people slipping under.",0],
-    ["BG658-FE fence-arm barrier","MAG","vehicle","barrier","Premium fence-arm barrier for hotels and corporate entrances.",0],
+    ["VCB-DC4F folding-arm barrier","Varito","vehicle","barrier","Folding boom for car parks with low ceilings.",1,"images/products/gctl-fallback-varito-vcb-dc4f.jpg"],
+    ["VW-DC503 car park barrier gate","Varito","vehicle","barrier","Straight-arm boom barrier for residential and office car parks.",1,"images/products/gctl-fallback-varito-vw-dc503.jpg"],
+    ["VW-DCV6 two-way boom barrier","Varito","vehicle","barrier","Dual-arm barrier that controls entry and exit lanes together.",0,"images/products/gctl-fallback-varito-vw-dcv6.jpg"],
+    ["VW-FA658 fence-arm barrier","Varito","vehicle","barrier","Barrier with a hanging fence skirt that stops people slipping under.",0,"images/products/gctl-fallback-varito-vw-fa658.jpg"],
+    ["BG658-FE fence-arm barrier","MAG","vehicle","barrier","Premium fence-arm barrier for hotels and corporate entrances.",0,"images/products/mag-bg658fe.webp"],
     ["Road blocker","NSE supply","vehicle","blocker","Rising wedge that physically stops unauthorised vehicles.",0],
     ["Tyre killer spikes","NSE supply","vehicle","spikes","One-way spike strip that disables vehicles entering the wrong way.",0],
     ["Parking guidance system","NSE supply","vehicle","signage","Bay sensors and signs that guide drivers to free spaces.",0],
     // Fire alarm
-    ["4-zone conventional fire alarm panel","Bosch","fire","alarm","Control panel for small buildings split into up to four zones.",1],
-    ["Addressable 4-loop fire alarm panel","Bosch","fire","alarm","Pinpoints each device's location across large, multi-floor sites.",0],
-    ["Addressable smoke and heat detector","Bosch","fire","fire","Combined detector that reports its exact address to the panel.",1],
-    ["Addressable manual call point","Bosch","fire","callpt","Break-glass point with built-in isolators for addressable loops.",1],
+    ["4-zone conventional fire alarm panel","Bosch","fire","alarm","Control panel for small buildings split into up to four zones.",1,"images/products/bosch-fpc500-4zone.jpg"],
+    ["Addressable 4-loop fire alarm panel","Bosch","fire","alarm","Pinpoints each device's location across large, multi-floor sites.",0,"images/products/bosch-fpa5000-mpc1300c.jpg"],
+    ["Addressable smoke and heat detector","Bosch","fire","fire","Combined detector that reports its exact address to the panel.",1,"images/products/bosch-fap425-ot.jpg"],
+    ["Addressable manual call point","Bosch","fire","callpt","Break-glass point with built-in isolators for addressable loops.",1,"images/products/bosch-fmc420rw.jpg"],
     ["Addressable loop sounder","NSE supply","fire","alarm","Loop-powered siren with built-in isolators.",1],
     ["ABC dry powder fire extinguisher","NSE supply","fire","ext","Multi-purpose extinguisher for solids, liquids and electrical fires.",1],
     ["Dry powder fire extinguisher, 3 kg","NSE supply","fire","ext","Compact extinguisher for vehicles, kitchens and small offices.",1],
