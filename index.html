@@ -191,33 +191,22 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:
 .band .hero-actions{margin-top:30px}
 .band .btn-line{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);backdrop-filter:blur(10px)}
 .band .btn-line:hover{border-color:#fff;background:rgba(255,255,255,.16)}
-.layers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.layers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .layers li{
-  position:relative;overflow:hidden;
+  position:relative;
   display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:center;
-  padding:16px 18px;border-radius:20px;
-  background:linear-gradient(155deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,.08) 45%, rgba(255,255,255,.14) 100%);
-  border:1px solid rgba(255,255,255,.4);
-  backdrop-filter:blur(22px) saturate(180%) brightness(1.08);
-  -webkit-backdrop-filter:blur(22px) saturate(180%) brightness(1.08);
-  box-shadow:0 20px 40px rgba(2,8,30,.35), inset 0 1px 0 rgba(255,255,255,.65), inset 0 -1px 0 rgba(255,255,255,.08);
-  transition:background-color .2s,border-color .2s,transform .2s,box-shadow .2s;
+  padding:16px 18px;border-radius:16px;
+  background:rgba(6,16,48,.42);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:0 12px 28px rgba(2,8,30,.25);
+  transition:background-color .2s,border-color .2s;
 }
-.layers li::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(120deg, rgba(255,255,255,.5) 0%, transparent 35%);
-  mix-blend-mode:overlay;
-}
-.layers li:hover{
-  background:linear-gradient(155deg, rgba(255,255,255,.36) 0%, rgba(255,255,255,.12) 45%, rgba(255,255,255,.18) 100%);
-  border-color:rgba(255,255,255,.55);
-  transform:translateY(-3px);
-  box-shadow:0 26px 48px rgba(2,8,30,.4), inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(255,255,255,.08);
-}
+.layers li:hover{background:rgba(6,16,48,.52);border-color:rgba(255,255,255,.26)}
 .layers svg{
   position:relative;width:24px;height:24px;padding:8px;box-sizing:content-box;color:var(--gold);
-  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:10px;
-  backdrop-filter:blur(6px);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;
 }
 .layers b{display:block;font-weight:700;font-size:1.05rem;position:relative}
 .layers span{color:#D6E0F7;font-size:.93rem;position:relative}
