@@ -86,8 +86,45 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:
 .hero-side p{color:var(--muted);font-size:1.08rem}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .lineup{margin-top:clamp(40px,6vw,64px);position:relative}
-.lineup-plate{position:relative;aspect-ratio:24/9;background:var(--panel);border-radius:4px 4px 0 0;overflow:hidden;display:grid;place-items:center}
-.lineup-plate img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.lineup-plate{position:relative;aspect-ratio:24/9;background:var(--panel);border-radius:4px 4px 0 0;overflow:hidden}
+
+/* interactive product lineup */
+.stage{position:absolute;inset:0}
+.stage .item{position:absolute;left:calc(var(--l) * 1%);width:calc(var(--w) * 1%);bottom:calc(var(--b, 0) * 1%);height:calc(var(--h) * 1%);display:flex;justify-content:center;align-items:flex-end;text-decoration:none;color:inherit;z-index:1;transition:opacity .25s,filter .25s}
+.stage .item img{height:100%;width:100%;max-width:none;object-fit:contain;object-position:50% 100%;transform-origin:50% 100%;
+  filter:drop-shadow(0 6px 6px rgba(10,36,99,.14));transition:transform .35s cubic-bezier(.2,.7,.2,1),filter .35s}
+/* gold hover light, always on the floor: for a floating item the floor is --b below it, i.e. --b/--h of its own height */
+.stage .item::after{content:"";position:absolute;left:-12%;right:-12%;bottom:calc(var(--b, 0) / var(--h) * -100% - 2px);height:max(12px, 10%);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(237,197,91,.8),rgba(237,197,91,0));opacity:0;transition:opacity .3s;z-index:-1}
+/* floating items: soft floor shadow plus a slow bob (uses the separate `translate` property so the hover `transform` still works) */
+.stage .item.float::before{content:"";position:absolute;left:6%;right:6%;bottom:calc(var(--b) / var(--h) * -100% + 1px);height:10px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(10,36,99,.34),rgba(10,36,99,0));z-index:-1;animation:float-shadow 5.5s ease-in-out infinite;animation-delay:var(--d, 0s)}
+.stage .item.float img{animation:bob 5.5s ease-in-out infinite;animation-delay:var(--d, 0s)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@keyframes float-shadow{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.8);opacity:.6}}
+.stage .item.gates{justify-content:space-between}
+.stage .item.gates img{width:auto;flex:none}
+.stage .waves{position:absolute;left:28%;width:44%;top:22%;height:44%;fill:none;stroke:var(--gold);stroke-width:2.2;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.55}
+.stage .waves path{vector-effect:non-scaling-stroke}
+.stage .item:hover,.stage .item:focus-visible{z-index:3}
+.stage .item:hover img,.stage .item:focus-visible img{transform:translateY(-4%) scale(1.05);filter:drop-shadow(0 14px 16px rgba(10,36,99,.28)) drop-shadow(0 0 10px rgba(237,197,91,.7))}
+.stage .item:hover::after,.stage .item:focus-visible::after{opacity:1}
+.stage .item:hover .waves,.stage .item:focus-visible .waves{opacity:1}
+.stage:has(.item:hover) .item:not(:hover),.stage:has(.item:focus-visible) .item:not(:focus-visible){opacity:.4;filter:saturate(.4)}.stage .item:focus-visible{outline:none}
+.stage .tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,6px);background:var(--blue-900);color:#D6E0F7;
+  padding:7px 12px 8px;border-radius:4px;border-bottom:3px solid var(--gold);font-size:.78rem;line-height:1.3;white-space:nowrap;
+  box-shadow:0 10px 24px rgba(10,36,99,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.stage .tip b{display:block;color:#fff;font-size:.86rem;font-weight:700}
+.stage .tip-l .tip{left:0;transform:translate(0,6px)}
+.stage .tip-r .tip{left:auto;right:0;transform:translate(0,6px)}
+.stage .item:hover .tip,.stage .item:focus-visible .tip{opacity:1;transform:translate(-50%,0)}
+.stage .tip-l:hover .tip,.stage .tip-l:focus-visible .tip,.stage .tip-r:hover .tip,.stage .tip-r:focus-visible .tip{transform:translate(0,0)}
+@keyframes wave{0%,100%{stroke-opacity:.25}50%{stroke-opacity:1}}
+.stage .waves path{animation:wave 2.4s ease-in-out infinite}
+.stage .waves path:nth-child(2){animation-delay:.3s}
+.stage .waves path:nth-child(3){animation-delay:.6s}
+@media (hover:none){.stage .tip{display:none}}
+@media (prefers-reduced-motion:reduce){.stage .waves path,.stage .item.float img,.stage .item.float::before{animation:none}.stage .item img{transition:none}.stage .item:hover img,.stage .item:focus-visible img{transform:none}}
 .plinth{height:14px;background:var(--gold);transform-origin:left;animation:plinth .9s cubic-bezier(.2,.7,.2,1) .15s both}
 .plinth-shadow{height:10px;background:var(--blue-900)}
 @keyframes plinth{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -474,8 +511,55 @@ footer a:hover{text-decoration:underline}
     </div>
 
     <div class="lineup">
+      <!-- Interactive product lineup. Positions are % of the stage: --l left, --w width, --h height, --b height above the floor.
+           Large products stand on the floor; small ones (class "float") hover at mounting height with a floor shadow and a gentle bob, --d staggers the bob.
+           Widths follow each cut-out's aspect ratio: --w = --h x (image width / height) x 0.375 (the stage is 24:9).
+           The anti-theft gates, labels, hard tag and deactivator are cut from the NSE launch poster. TODO: swap for photos of real stock. -->
       <div class="lineup-plate">
-        <img src="images/lineup.svg" width="2400" height="900" alt="Next Shield product lineup: walk-through metal detector, CCTV cameras, tripod turnstile, retail anti-theft gates with hard tag, labels and deactivator, face recognition terminal, vault door and safe">
+        <div class="stage" role="group" aria-label="Product lineup: point at or tab to a product to see its name, select it to open its category">
+          <a class="item tip-l" href="#products" data-jump="entrance" style="--l:1.5;--w:14.81;--h:74">
+            <img src="images/lineup/garrett-pd6500i.png" width="347" height="650" alt="">
+            <span class="tip"><b>Garrett PD 6500i</b>Walk-through metal detector</span>
+          </a>
+          <a class="item float" href="#products" data-jump="cctv" style="--l:18.5;--w:6.78;--h:26;--b:52;--d:0s">
+            <img src="images/lineup/avtech-avz592.png" width="160" height="230" alt="">
+            <span class="tip"><b>AVTECH AVZ592</b>2MP 20&times; PTZ camera</span>
+          </a>
+          <a class="item float" href="#products" data-jump="cctv" style="--l:26.5;--w:7.96;--h:13;--b:36;--d:-1.8s">
+            <img src="images/lineup/hikvision-ds2ce16d0tir.png" width="196" height="120" alt="">
+            <span class="tip"><b>Hikvision DS-2CE16D0T-IR</b>2MP bullet camera</span>
+          </a>
+          <a class="item gates" href="#retail" style="--l:36;--w:17.54;--h:64">
+            <img src="images/lineup/eas-gate-left.png" width="81" height="385" alt="">
+            <svg class="waves" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M14 38q7 12 0 24M86 38q-7 12 0 24"/><path d="M26 30q11 20 0 40M74 30q-11 20 0 40"/><path d="M38 22q15 28 0 56M62 22q-15 28 0 56"/></svg>
+            <img src="images/lineup/eas-gate-right.png" width="84" height="385" alt="">
+            <span class="tip"><b>AM and RF anti-theft gates</b>Retail security &middot; installed free</span>
+          </a>
+          <a class="item float" href="#retail" style="--l:56;--w:5.19;--h:11;--b:7;--d:-3.1s">
+            <img src="images/lineup/eas-labels.png" width="146" height="116" alt="">
+            <span class="tip"><b>Security labels</b>Retail security</span>
+          </a>
+          <a class="item float" href="#retail" style="--l:62;--w:3.49;--h:9;--b:9;--d:-0.9s">
+            <img src="images/lineup/eas-hard-tag.png" width="117" height="113" alt="">
+            <span class="tip"><b>Hard tags</b>Retail security</span>
+          </a>
+          <a class="item float" href="#retail" style="--l:66.5;--w:6.27;--h:7;--b:6;--d:-4.2s">
+            <img src="images/lineup/eas-deactivator.png" width="215" height="90" alt="">
+            <span class="tip"><b>Label deactivator pad</b>Retail security</span>
+          </a>
+          <a class="item float" href="#products" data-jump="access" style="--l:75;--w:2.79;--h:24;--b:34;--d:-2.6s">
+            <img src="images/lineup/virdi-ac2200.png" width="65" height="210" alt="">
+            <span class="tip"><b>Virdi AC-2200</b>Fingerprint access terminal</span>
+          </a>
+          <a class="item tip-r" href="#products" data-jump="safehouse" style="--l:79.5;--w:9.97;--h:52">
+            <img src="images/lineup/chubbsafes-dpc.png" width="206" height="403" alt="">
+            <span class="tip"><b>Chubbsafes DPC</b>Document protection cabinet</span>
+          </a>
+          <a class="item tip-r" href="#products" data-jump="safehouse" style="--l:88.3;--w:10.2;--h:30">
+            <img src="images/lineup/chubbsafes-executive.png" width="254" height="280" alt="">
+            <span class="tip"><b>Chubbsafes Executive</b>Fireproof safe</span>
+          </a>
+        </div>
       </div>
       <div class="plinth"></div>
       <div class="plinth-shadow"></div>
