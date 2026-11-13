@@ -142,7 +142,7 @@ a.eyebrow:hover{border-color:var(--gold-600);background:#F8EBC4}
 .card{scroll-snap-align:start;border:1px solid var(--line);border-radius:6px;background:var(--bg);display:flex;flex-direction:column;overflow:hidden;transition:border-color .15s}
 .card:hover{border-color:var(--gold-600);box-shadow:inset 0 -3px 0 var(--gold)}
 .card .ph{aspect-ratio:4/3;background:var(--surface);display:grid;place-items:center;color:var(--blue);border-bottom:1px solid var(--line);position:relative}
-.card .ph svg{width:46%}
+.card .ph svg{width:34%}
 .stock{position:absolute;top:10px;left:10px;font-size:.75rem;font-weight:650;background:var(--gold);color:#0A2463;padding:3px 8px;border-radius:3px}
 .card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card h4{margin:2px 0 0;font-size:1.02rem;font-weight:700;line-height:1.25}
@@ -167,7 +167,7 @@ a.eyebrow:hover{border-color:var(--gold-600);background:#F8EBC4}
 .catcell ul{list-style:none;margin:0;padding:0;color:var(--muted);font-size:.9rem;line-height:1.7}
 .also{margin-top:22px;color:var(--muted);font-size:.95rem}
 .also b{color:var(--head)}
-.card .ph img{width:100%;height:100%;object-fit:contain;padding:12px;background:#fff}
+.card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;background:#fff}
 .more [hidden],.more button[hidden]{display:none}
 .more{display:flex;justify-content:center;margin-top:28px}
 .catcell.key{background:var(--blue-100)}
@@ -602,33 +602,33 @@ footer a:hover{text-decoration:underline}
 
     <div class="showcase">
       <article class="feature feature-lg">
-        <div class="ph"><img src="images/products/gunnebo-centurion-dd.webp" alt="Gunnebo Centurion LW-DD vault door" loading="lazy"></div>
+        <div class="ph"><img src="images/products/chubbsafes-executive.jpg" alt="Chubbsafes Executive fireproof safe" loading="lazy"></div>
         <div class="body">
           <span class="cat">Safehouse</span>
-          <h3>Centurion LW-DD vault door</h3>
-          <p>Gunnebo high-security vault door for bank strong rooms, data rooms and residential safe rooms. Supplied with frame and installation.</p>
+          <h3>Chubbsafes Executive fireproof safe</h3>
+          <p>Certified fire safe for paper documents, valuables and data media in offices, bank branches and homes. Supplied and installed by our own team.</p>
           <dl class="specs">
-            <div><dt>Fire rating</dt><dd>120 min</dd></div>
-            <div><dt>Security grade</dt><dd>V&ndash;VI</dd></div>
-            <div><dt>Certification</dt><dd>EN 1143-1</dd></div>
+            <div><dt>Fire rating</dt><dd>60 min</dd></div>
+            <div><dt>Protects</dt><dd>Paper and data</dd></div>
+            <div><dt>Availability</dt><dd>In stock</dd></div>
           </dl>
           <!-- TODO: placeholder sales number in the three "Call for price" links below — replace with the real number -->
           <a class="price" href="tel:+8801XXXXXXXXX"><svg aria-hidden="true"><use href="#g-phone"/></svg>Call for price</a>
-          <button class="btn btn-blue js-quote" data-product="Gunnebo Centurion LW-DD vault door">Request a quote</button>
+          <button class="btn btn-blue js-quote" data-product="Chubbsafes Executive fireproof safe">Request a quote</button>
         </div>
       </article>
       <article class="feature feature-sm">
-        <div class="ph"><img src="images/products/zkteco-uface800.jpg" alt="ZKTeco uFace800 facial access terminal" loading="lazy"></div>
+        <div class="ph"><img src="images/products/virdi-ac2200.jpg" alt="Virdi AC-2200 fingerprint access terminal" loading="lazy"></div>
         <div class="body">
           <span class="cat">Access control</span>
-          <h3>ZKTeco uFace800</h3>
-          <p>Face, fingerprint and card terminal that handles door access and staff attendance on one device.</p>
+          <h3>Virdi AC-2200</h3>
+          <p>Fingerprint and card terminal that handles door access and staff attendance on one device.</p>
           <a class="price" href="tel:+8801XXXXXXXXX"><svg aria-hidden="true"><use href="#g-phone"/></svg>Call for price</a>
-          <button class="btn btn-line js-quote" data-product="ZKTeco uFace800">Request a quote</button>
+          <button class="btn btn-line js-quote" data-product="Virdi AC-2200">Request a quote</button>
         </div>
       </article>
       <article class="feature feature-sm">
-        <div class="ph"><img src="images/products/garrett-pd6500i.png" alt="Garrett PD 6500i walk-through metal detector" loading="lazy"></div>
+        <div class="ph"><img src="images/products/garrett-pd6500i.jpg" alt="Garrett PD 6500i walk-through metal detector" loading="lazy"></div>
         <div class="body">
           <span class="cat">Entrance security</span>
           <h3>Garrett PD 6500i</h3>
@@ -829,19 +829,16 @@ footer a:hover{text-decoration:underline}
   // Descriptions are original. To add a photo, set img to a data: URI or a file path on your own host.
   // [name, brand, category, glyph, description, inStock, img]
   // Safehouse items were originally fictional "Next Shield" branded SKUs with no real image;
-  // swapped for genuine Chubbsafes/Gunnebo products with matching specs (fire rating etc.) so
-  // there's a real manufacturer photo for every row. Swap for Next Shield's own installed work
-  // (photos, brand names) once available.
-  // Image sourcing notes (review before launch):
-  // - Files prefixed "gctl-fallback-" were pulled from gctlsecurity.com because no matching
-  //   product/SKU could be confirmed on the actual manufacturer's own site (either the model
-  //   code doesn't exist there, or the manufacturer has discontinued/delisted it). Replace with
-  //   licensed/manufacturer-confirmed photos before launch, or if flagged for copyright.
+  // swapped for genuine Chubbsafes/Gunnebo products with matching specs (fire rating etc.).
+  // Swap for Next Shield's own installed work (photos, brand names) once available.
+  // Image notes:
+  // - Every photo in images/products is a manufacturer studio shot, cleaned to a pure white
+  //   background and re-framed to the same square with even margins. Add new photos the same way.
+  // - Rows without a 7th field show their line-art glyph. Photos copied from gctlsecurity.com
+  //   (some carried GCTL's watermark), scene/dark-background shots and low-quality cut-outs were
+  //   removed; add manufacturer or Next Shield photos for those rows when available.
   // - VF-30 (Anviz): manufacturer only lists a "VF30 Pro" successor now; photo is of that.
-  // - T60 (Anviz): photo is a lifestyle/install shot from the official T60 Pro flyer, not a studio cutout.
   // - DS-2CE16D0T-IR (Hikvision): manufacturer site now only lists the "-IR(C)" variant; used that photo.
-  // - Addressable 4-loop fire alarm panel (Bosch): FPA-5000 is modular (no single boxed "4-loop" SKU);
-  //   photo is of the MPC-1300-C panel controller module, the main visible unit of that panel family.
   // - UB700 (UNIQSCAN): our spec says "24-zone" but the manufacturer's current page describes this
   //   model as 33-zone — verify the correct zone count before publishing.
   const P = [
@@ -854,46 +851,46 @@ footer a:hover{text-decoration:underline}
     ["Label deactivator pad","NSE systems","retail","deactivator","Deactivates labels at checkout so paid items pass the gate without an alarm.",1],
     ["Hard tag detacher","NSE systems","retail","detacher","Releases hard tags in seconds at the counter, without damaging the garment.",1],
     // Access control & time attendance
-    ["uFace800 facial access terminal","ZKTeco","access","face","Face, fingerprint and card entry with built-in attendance logging.",1,"images/products/zkteco-uface800.jpg"],
-    ["uFace302 biometric attendance terminal","ZKTeco","access","face","Multi-biometric terminal for staff attendance and single-door control.",1,"images/products/zkteco-uface302.jpg"],
+    ["uFace800 facial access terminal","ZKTeco","access","face","Face, fingerprint and card entry with built-in attendance logging.",1],
+    ["uFace302 biometric attendance terminal","ZKTeco","access","face","Multi-biometric terminal for staff attendance and single-door control.",1],
     ["AC-2200 fingerprint access terminal","Virdi","access","finger","Fingerprint and card reader for offices that need access and attendance together.",1,"images/products/virdi-ac2200.jpg"],
-    ["SR-100FP fingerprint slave reader","Virdi","access","reader","Secondary reader that adds fingerprint checks on the exit side of a door.",0,"images/products/virdi-sr100fp.png"],
-    ["FR1200 fingerprint and RFID reader","Granding","access","reader","Weatherproof slave reader for outdoor gates and anti-passback setups.",1,"images/products/gctl-fallback-granding-fr1200.jpg"],
-    ["VF-30 fingerprint and RFID terminal","Anviz","access","finger","Compact fingerprint and card terminal for small offices and shops.",1,"images/products/anviz-vf30.png"],
-    ["T60 fingerprint and RFID controller","Anviz","access","finger","Slim, door-frame-mounted reader for glass and narrow doors.",0,"images/products/anviz-t60.jpg"],
-    ["eNBioAccess-T3 attendance terminal","Nitgen","access","finger","Fingerprint attendance terminal with network reporting.",0,"images/products/gctl-fallback-nitgen-enbioaccess-t3.jpg"],
-    ["BioMini USB fingerprint scanner","Suprema","access","usb","Desktop scanner for enrolling staff fingerprints at a PC.",1,"images/products/gctl-fallback-suprema-biomini.jpg"],
-    ["KR100E RFID external reader","ZKTeco","access","reader","Card reader for adding card entry to an existing controller.",1,"images/products/zkteco-kr100e.png"],
+    ["SR-100FP fingerprint slave reader","Virdi","access","reader","Secondary reader that adds fingerprint checks on the exit side of a door.",0],
+    ["FR1200 fingerprint and RFID reader","Granding","access","reader","Weatherproof slave reader for outdoor gates and anti-passback setups.",1],
+    ["VF-30 fingerprint and RFID terminal","Anviz","access","finger","Compact fingerprint and card terminal for small offices and shops.",1,"images/products/anviz-vf30.jpg"],
+    ["T60 fingerprint and RFID controller","Anviz","access","finger","Slim, door-frame-mounted reader for glass and narrow doors.",0],
+    ["eNBioAccess-T3 attendance terminal","Nitgen","access","finger","Fingerprint attendance terminal with network reporting.",0],
+    ["BioMini USB fingerprint scanner","Suprema","access","usb","Desktop scanner for enrolling staff fingerprints at a PC.",1],
+    ["KR100E RFID external reader","ZKTeco","access","reader","Card reader for adding card entry to an existing controller.",1,"images/products/zkteco-kr100e.jpg"],
     // CCTV
     ["AVZ592 2MP 20× PTZ camera","AVTECH","cctv","ptz","Pan, tilt and 20× zoom camera for car parks, yards and large lobbies.",0,"images/products/avtech-avz592.jpg"],
     ["AVH308EA 8-channel HD recorder","AVTECH","cctv","nvr","Records and plays back up to eight HD cameras from one unit.",1,"images/products/avtech-avh308ea.jpg"],
     ["DS-2CE16D0T-IR 2MP bullet camera","Hikvision","cctv","bullet","Day-night 1080p bullet camera with infrared for dark areas.",1,"images/products/hikvision-ds2ce16d0tir.jpg"],
-    ["DS-2CE16D5T-IT5 2MP IR bullet camera","Hikvision","cctv","bullet","Long-range infrared bullet camera for perimeters and boundary walls.",1,"images/products/gctl-fallback-hikvision-ds2ce16d5t-it5.jpg"],
-    ["DS-2CE16D5T-AVFIT3 varifocal bullet camera","Hikvision","cctv","bullet","Adjustable zoom lens so one camera can cover a wide or narrow field.",0,"images/products/gctl-fallback-hikvision-ds2ce16d5t-avfit3.jpg"],
-    ["DS-2AE4123TI-D IR PTZ dome","Hikvision","cctv","ptz","Compact PTZ dome with infrared for indoor and covered outdoor areas.",0,"images/products/gctl-fallback-hikvision-ds2ae4123ti-d.jpg"],
-    ["Home and shop CCTV kit","Varito","cctv","bullet","Ready-to-install camera set for homes and small retail shops.",1,"images/products/gctl-fallback-varito-cctv-home-shop-kit.jpg"],
+    ["DS-2CE16D5T-IT5 2MP IR bullet camera","Hikvision","cctv","bullet","Long-range infrared bullet camera for perimeters and boundary walls.",1],
+    ["DS-2CE16D5T-AVFIT3 varifocal bullet camera","Hikvision","cctv","bullet","Adjustable zoom lens so one camera can cover a wide or narrow field.",0],
+    ["DS-2AE4123TI-D IR PTZ dome","Hikvision","cctv","ptz","Compact PTZ dome with infrared for indoor and covered outdoor areas.",0],
+    ["Home and shop CCTV kit","Varito","cctv","bullet","Ready-to-install camera set for homes and small retail shops.",1],
     // Entrance security
-    ["PD 6500i 33-zone walk-through detector","Garrett","entrance","arch","Walk-through detector that shows exactly which zone detected metal.",1,"images/products/garrett-pd6500i.png"],
-    ["UB800 33-zone walk-through detector","UNIQSCAN","entrance","arch","High-zone archway detector for airports, courts and embassies.",0,"images/products/gctl-fallback-uniqscan-ub800.jpg"],
+    ["PD 6500i 33-zone walk-through detector","Garrett","entrance","arch","Walk-through detector that shows exactly which zone detected metal.",1,"images/products/garrett-pd6500i.jpg"],
+    ["UB800 33-zone walk-through detector","UNIQSCAN","entrance","arch","High-zone archway detector for airports, courts and embassies.",0],
     ["UB700 24-zone walk-through detector","UNIQSCAN","entrance","arch","24-zone archway for corporate lobbies and event entrances.",1,"images/products/uniqscan-ub700.jpg"],
     ["UB600 18-zone walk-through detector","UNIQSCAN","entrance","arch","18-zone archway for factories, schools and hotels.",1,"images/products/uniqscan-ub600.jpg"],
     ["UM500 rainproof walk-through detector","UNIQSCAN","entrance","arch","Weather-resistant archway for uncovered gates and outdoor events.",0,"images/products/uniqscan-um500.jpg"],
-    ["VMD-3000 18-zone archway detector","Varito","entrance","arch","18-zone archway detector for everyday entrance screening.",1,"images/products/gctl-fallback-varito-vmd-3000.jpg"],
-    ["Guide hand-held metal detector","Garrett","entrance","wand","Hand-held wand for secondary checks after an archway alarm.",1,"images/products/garrett-guide.png"],
-    ["SF5030C X-ray baggage scanner","Varito","entrance","xray","Screens bags and parcels at reception desks and mailrooms.",0,"images/products/gctl-fallback-varito-sf5030c.jpg"],
-    ["X-ray baggage scanner","Varito","entrance","xray","Conveyor X-ray scanner for high-volume baggage screening.",0,"images/products/gctl-fallback-varito-xray-generic.jpg"],
+    ["VMD-3000 18-zone archway detector","Varito","entrance","arch","18-zone archway detector for everyday entrance screening.",1],
+    ["Guide hand-held metal detector","Garrett","entrance","wand","Hand-held wand for secondary checks after an archway alarm.",1,"images/products/garrett-guide.jpg"],
+    ["SF5030C X-ray baggage scanner","Varito","entrance","xray","Screens bags and parcels at reception desks and mailrooms.",0],
+    ["X-ray baggage scanner","Varito","entrance","xray","Conveyor X-ray scanner for high-volume baggage screening.",0],
     // Vehicle control
-    ["VCB-DC4F folding-arm barrier","Varito","vehicle","barrier","Folding boom for car parks with low ceilings.",1,"images/products/gctl-fallback-varito-vcb-dc4f.jpg"],
-    ["VW-DC503 car park barrier gate","Varito","vehicle","barrier","Straight-arm boom barrier for residential and office car parks.",1,"images/products/gctl-fallback-varito-vw-dc503.jpg"],
-    ["VW-DCV6 two-way boom barrier","Varito","vehicle","barrier","Dual-arm barrier that controls entry and exit lanes together.",0,"images/products/gctl-fallback-varito-vw-dcv6.jpg"],
-    ["VW-FA658 fence-arm barrier","Varito","vehicle","barrier","Barrier with a hanging fence skirt that stops people slipping under.",0,"images/products/gctl-fallback-varito-vw-fa658.jpg"],
-    ["BG658-FE fence-arm barrier","MAG","vehicle","barrier","Premium fence-arm barrier for hotels and corporate entrances.",0,"images/products/mag-bg658fe.webp"],
+    ["VCB-DC4F folding-arm barrier","Varito","vehicle","barrier","Folding boom for car parks with low ceilings.",1],
+    ["VW-DC503 car park barrier gate","Varito","vehicle","barrier","Straight-arm boom barrier for residential and office car parks.",1],
+    ["VW-DCV6 two-way boom barrier","Varito","vehicle","barrier","Dual-arm barrier that controls entry and exit lanes together.",0],
+    ["VW-FA658 fence-arm barrier","Varito","vehicle","barrier","Barrier with a hanging fence skirt that stops people slipping under.",0],
+    ["BG658-FE fence-arm barrier","MAG","vehicle","barrier","Premium fence-arm barrier for hotels and corporate entrances.",0,"images/products/mag-bg658fe.jpg"],
     ["Road blocker","NSE supply","vehicle","blocker","Rising wedge that physically stops unauthorised vehicles.",0],
     ["Tyre killer spikes","NSE supply","vehicle","spikes","One-way spike strip that disables vehicles entering the wrong way.",0],
     ["Parking guidance system","NSE supply","vehicle","signage","Bay sensors and signs that guide drivers to free spaces.",0],
     // Fire alarm
     ["4-zone conventional fire alarm panel","Bosch","fire","alarm","Control panel for small buildings split into up to four zones.",1,"images/products/bosch-fpc500-4zone.jpg"],
-    ["Addressable 4-loop fire alarm panel","Bosch","fire","alarm","Pinpoints each device's location across large, multi-floor sites.",0,"images/products/bosch-fpa5000-mpc1300c.jpg"],
+    ["Addressable 4-loop fire alarm panel","Bosch","fire","alarm","Pinpoints each device's location across large, multi-floor sites.",0],
     ["Addressable smoke and heat detector","Bosch","fire","fire","Combined detector that reports its exact address to the panel.",1,"images/products/bosch-fap425-ot.jpg"],
     ["Addressable manual call point","Bosch","fire","callpt","Break-glass point with built-in isolators for addressable loops.",1,"images/products/bosch-fmc420rw.jpg"],
     ["Addressable loop sounder","NSE supply","fire","alarm","Loop-powered siren with built-in isolators.",1],
@@ -901,11 +898,11 @@ footer a:hover{text-decoration:underline}
     ["Dry powder fire extinguisher, 3 kg","NSE supply","fire","ext","Compact extinguisher for vehicles, kitchens and small offices.",1],
     ["Modular automatic extinguisher, 6 kg","NSE supply","fire","ext","Ceiling-mounted unit that discharges on its own when heat rises.",0],
     // Safehouse (real vault/safe manufacturer products, supplied and installed by Next Shield)
-    ["Centurion DD vault door","Gunnebo","safehouse","vault","High-security vault door for bank strong rooms, rated to 120 minutes fire resistance.",0,"images/products/gunnebo-centurion-dd.webp"],
-    ["Executive fireproof safe","Chubbsafes","safehouse","safe","Certified 60-minute fire safe for paper documents, valuables and data media.",1,"images/products/chubbsafes-executive.png"],
-    ["Omega deposit safe","Chubbsafes","safehouse","safe","Drop-slot deposit safe with anti-fishing device for tills and after-hours deposits.",0,"images/products/chubbsafes-omega-deposit.webp"],
-    ["ModulGuard SR T2 strong room panels","Gunnebo","safehouse","room","Modular bolted steel panels that turn an existing room into a certified strong room.",0,"images/products/gunnebo-modulguard-srt2.webp"],
-    ["DPC document protection cabinet","Chubbsafes","safehouse","safe","120-minute fire-rated cabinet for high-volume records storage in banks and offices.",0,"images/products/chubbsafes-dpc.png"]
+    ["Centurion DD vault door","Gunnebo","safehouse","vault","High-security vault door for bank strong rooms, rated to 120 minutes fire resistance.",0],
+    ["Executive fireproof safe","Chubbsafes","safehouse","safe","Certified 60-minute fire safe for paper documents, valuables and data media.",1,"images/products/chubbsafes-executive.jpg"],
+    ["Omega deposit safe","Chubbsafes","safehouse","safe","Drop-slot deposit safe with anti-fishing device for tills and after-hours deposits.",0,"images/products/chubbsafes-omega-deposit.jpg"],
+    ["ModulGuard SR T2 strong room panels","Gunnebo","safehouse","room","Modular bolted steel panels that turn an existing room into a certified strong room.",0],
+    ["DPC document protection cabinet","Chubbsafes","safehouse","safe","120-minute fire-rated cabinet for high-volume records storage in banks and offices.",0,"images/products/chubbsafes-dpc.jpg"]
   ];
   // Prices are never shown: every product says "Call for price".
   // TODO: placeholder sales number — replace with the real number (also used in the top bar, quote section and footer)
@@ -930,9 +927,9 @@ footer a:hover{text-decoration:underline}
   // Retail section: the retail anti-theft line
   document.getElementById('retailGrid').innerHTML = P.filter(p=>p[2]==='retail').map(p=>card(p,true)).join('');
 
-  // Rail: in-stock picks across the other categories (retail has its own section above)
+  // Rail: in-stock picks with photos across the other categories (retail has its own section above)
   const rail = document.getElementById('rail');
-  rail.innerHTML = P.filter(p=>p[5] && p[2]!=='retail').slice(0,14).map(p=>card(p,true)).join('');
+  rail.innerHTML = P.filter(p=>p[5] && p[6] && p[2]!=='retail').slice(0,14).map(p=>card(p,true)).join('');
   const prev = document.getElementById('railPrev'), next = document.getElementById('railNext');
   const step = () => (rail.querySelector('.card')?.offsetWidth || 260) + 16;
   prev.onclick = () => rail.scrollBy({left:-step()*2,behavior:'smooth'});
